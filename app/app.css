@@ -1,0 +1,74 @@
+﻿Page {
+    background-color: lightgray;
+    font-size: 14;
+    padding: 0;
+}
+.fn-header-stack{
+   padding:5;
+}
+.fn-logo{
+    horizontal-align: center;
+    margin-bottom: 10;
+}
+
+.fn-title{
+    horizontal-align: center;
+    font-size: 24;
+    padding-top:10;
+}
+
+.fn-input {
+    padding: 8;
+    font-size: 16;
+}
+
+.initial-container{
+  background-color: whitesmoke
+}
+
+
+
+.fn-button{
+  background-color:darkorange;
+  color:black;
+  font-size: 14;
+  font-weight: bold;
+}
+
+.fn-list-button{
+  margin:0;
+  height:45;
+  background-color:darkorange;
+  color:black;
+  text-align: left;
+  font-size: 14;
+  font-weight: bold;
+}
+
+.fn-stacklayout{
+  padding:10;
+  margin:0;
+}
+
+.fn-listpicker{
+  margin-bottom: 0;
+  margin-top:0;
+  font-size: 16;
+  height: 75;
+  width: 100%;
+  horizontal-align: left;
+}
+
+GridLayout {
+  border-color: red;
+  border-width: 2;
+  padding: 0;
+  margin:0;
+}
+StackLayout
+{
+  border-color: pink;
+  border-width: 2;
+  padding: 0;
+  margin:0;
+}

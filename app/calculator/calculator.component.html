@@ -1,0 +1,64 @@
+
+<GridLayout rows="auto, *">
+        <StackLayout orientation="horizontal" class="fn-header-section">
+                <Button text="<-" (tap)="navigatePrev()" ></Button>
+                <Label text="Simple Interest" class="fn-title"></Label>
+        </StackLayout>
+        <ScrollView row="1">
+                 <GridLayout rows="auto, *">
+                        <GridLayout rows="auto, *">
+                                <StackLayout orientation="vertical" row="1">
+                                        <Label #resultLab [text]="si | currency:'USD':true:'1.2-2'"
+                                                class="fn-answer"></Label>
+                                        <TextField #amountTxtField
+                                        [(ngModel)]="amount"
+                                        class="fn-input"
+                                        hint="Principal"
+                                        keyboardType="number"
+                                        returnKeyType="next"
+                                        autocapitalizationType="none">
+                                        </TextField>
+                                        <TextField #rateTxtField
+                                        [(ngModel)]="rate"
+                                        keyboardType="number"
+                                        class="fn-input"
+                                        hint="Interest Rate"
+                                        keyboardType="number"
+                                        returnKeyType="next"
+                                        autocapitalizationType="none">
+                                        </TextField>
+                                        <TextField #timeTxtField
+                                        [(ngModel)]="year"
+                                        keyboardType="number"
+                                        class="fn-input"
+                                        hint="Time in Years"
+                                        keyboardType="number"
+                                        returnKeyType="next"
+                                        autocapitalizationType="none">
+                                        </TextField>
+                                        <ListPicker 
+                                        class="fn-listpicker"
+                                        [(ngModel)]="selectedTimeIndex" 
+                                        [items]="arTimes" 
+                                        (selectedIndexChange)="selectedIndexChanged()">
+                                        </ListPicker>
+                                        <Button
+                                        horizontalAlignment="center"
+                                        [text]="btnName"
+                                        class="fn-button"
+                                        (tap)="siCalcualte()"></Button>
+                                </StackLayout>  
+                        </GridLayout>
+                        <GridLayout rows="auto, *" row="1">
+                                <StackLayout orientation="vertical" row="1">
+                                                <TextView text="Formula:" editable ="false"></TextView>
+                                                <TextView text="SI = P(1 + rt)\r\n asdfsdaf" editable ="false"></TextView>
+                                </StackLayout> 
+                        </GridLayout>
+                 </GridLayout>
+        </ScrollView>
+        
+</GridLayout>
+
+
+

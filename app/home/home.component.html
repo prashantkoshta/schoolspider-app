@@ -1,0 +1,18 @@
+<GridLayout rows="auto, *">
+      <StackLayout orientation="horizontal" class="fn-header-stack">
+             <Image src="res://icon" 
+                  class="fn-logo"
+                  stretch ="none">
+            </Image> 
+            <Label text="Finance-EQ" class="fn-title"></Label>
+      </StackLayout>
+      <GridLayout rows="auto, *" row="1">
+             <ListView [items]="items" row="1">
+                  <template let-item="item">
+                        <StackLayout clas="fn-stacklayout">
+                              <Button [text]="item.type" class="fn-list-button" (tap)="actionOnSelect(item)" ></Button>
+                        </StackLayout>
+                  </template>
+            </ListView>
+      </GridLayout>
+</GridLayout>
