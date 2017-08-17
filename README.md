@@ -1,4 +1,4 @@
-# Finance Equation Mobile App
+# SchoolSpider Mobile App
 
 In build.gradle add this option to increase heap size.
 
