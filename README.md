@@ -10,6 +10,6 @@ android {
 
 
 To update project name
-C:\Users\prashant\prashant\development\nativescript\finance-equation\platforms\android\settings.gradle
+.\development\nativescript\finance-equation\platforms\android\settings.gradle
 
-rootProject.name = "Finance-EQ"
+rootProject.name = "SchoolSpider"
