@@ -8,7 +8,7 @@
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "org.nativescript.financeequation"  
+    applicationId = "org.nativescript.sspider"  
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"  

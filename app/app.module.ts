@@ -12,11 +12,11 @@ import { authProviders, appRoutes } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { HomeModule } from "./home/home.module";
 //setStatusBarColors();
-import { CalcualtionService } from "./shared/calculation.service";
+//import { CalcualtionService } from "./shared/calculation.service";
 
 @NgModule({
   providers: [
-    CalcualtionService
+    //CalcualtionService
   ],
   imports: [
     NativeScriptModule,
@@ -24,7 +24,6 @@ import { CalcualtionService } from "./shared/calculation.service";
     NativeScriptHttpModule,
     NativeScriptRouterModule.forRoot(appRoutes),
     HomeModule,
-    CommonModule,
     FormsModule,
     HttpModule
   ],

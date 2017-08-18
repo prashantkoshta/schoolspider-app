@@ -7,7 +7,6 @@ import { View } from "ui/core/view";
 import { prompt } from "ui/dialogs";
 import { Page } from "ui/page";
 import { TextField } from "ui/text-field";
-import { CalcualtionService } from "./../shared/calculation.service";
 
 @Component({
     selector: 'fn-calculator',
@@ -28,7 +27,7 @@ export class CalculatorComponent implements OnInit {
     @ViewChild("rateTxtField") rateTxtField: ElementRef;
     @ViewChild("resultLab") resultLab: ElementRef;
      
-    constructor(private router: Router, private page: Page,private _calculate:CalcualtionService) {
+    constructor(private router: Router, private page: Page) {
         this.btnName ="Calculate Now";
         this.arTimes = new Array<string>("year","quarter","month","week","day");
         this.selectedTimeIndex = 0;
@@ -50,7 +49,7 @@ export class CalculatorComponent implements OnInit {
     }
 
     siCalcualte():void{
-        this.si = this._calculate.getSI(this.amount,this.rate,this.year,this.arTimes[this.selectedTimeIndex]);
+        //this.si = this._calculate.getSI(this.amount,this.rate,this.year,this.arTimes[this.selectedTimeIndex]);
     }
 
     selectedIndexChanged():void{

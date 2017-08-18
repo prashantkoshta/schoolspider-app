@@ -10,7 +10,7 @@
              <ListView [items]="items" row="1">
                   <template let-item="item">
                         <StackLayout clas="fn-stacklayout">
-                              <Button [text]="item.type" class="fn-list-button" (tap)="actionOnSelect(item)" ></Button>
+                              <Button [text]="item.value" class="fn-list-button" (tap)="actionOnSelect(item)" ></Button>
                         </StackLayout>
                   </template>
             </ListView>
