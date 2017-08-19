@@ -1,6 +1,6 @@
 import { ModuleWithProviders }  from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-
+import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { QuizComponent } from "./quiz.component";
 
 import { RadioOptionsComponent } from "./radiooptions/radiooptions.component";
@@ -15,4 +15,4 @@ const quizRoutes: Routes = [
         ]
     }
 ];
-export const QuizRouting: ModuleWithProviders = RouterModule.forChild(quizRoutes);
+export const QuizRouting: ModuleWithProviders = NativeScriptRouterModule.forChild(quizRoutes);

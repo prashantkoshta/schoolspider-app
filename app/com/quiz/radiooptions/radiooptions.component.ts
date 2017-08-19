@@ -30,8 +30,10 @@ export class RadioOptionsComponent implements OnInit, OnDestroy {
            // this.initScreen();
        // });
         this.item = this._constantsService.selectedQuestion;
+
+        
         console.log("ROUTING PARAM : "+this._constantsService.qIndex); 
-       /* Observable.of(this._constantsService.selectedQuestion)
+       Observable.of(this._constantsService.qIndex)
        // .map(v => v)
        // .filter(v => true)
         .subscribe(
@@ -39,8 +41,6 @@ export class RadioOptionsComponent implements OnInit, OnDestroy {
             e => { console.log( e ) },
             () => { console.log('complete') }
         );
-
-*/
 
      }
    

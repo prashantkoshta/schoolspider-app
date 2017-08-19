@@ -23,7 +23,7 @@ export class QuizComponent implements OnInit {
     ) { 
         let cnt = this._constantsService.qIndex+1;
         this.title = "Question:"+cnt;
-        this.router.navigate(["/quizs/single-select",0]);
+        this.routerExtensions.navigate(["/quizs/single-select",0]);
         this.isLastData  = false;
     }
 
