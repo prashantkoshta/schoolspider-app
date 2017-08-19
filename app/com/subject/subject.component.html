@@ -1,0 +1,20 @@
+<ActionBar [title]="title" class="action-bar"></ActionBar>
+<!-- FlexboxLayout flexDirection="column" class="page">
+    <FlexboxLayout class="m-15">
+        <Label class="h2" [text]="item.class + '. '"></Label>
+        <Label class="h2" [text]="item.class"></Label>
+    </FlexboxLayout>
+    <Label class="h4" [text]="item.class"></Label>
+</FlexboxLayout -->
+
+
+
+<StackLayout class="page">
+    <ListView [items]="items" class="list-group">
+        <ng-template let-item="item">
+                <Label [nsRouterLink]="['/lessons',item.class,item.subject]" [text]="item.subject"
+                class="list-group-item"></Label>
+        </ng-template>
+    </ListView>
+</StackLayout>
+

@@ -8,7 +8,7 @@
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "org.nativescript.sspider"  
+    applicationId = "org.nativescript.schoolspiderapp"  
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"  

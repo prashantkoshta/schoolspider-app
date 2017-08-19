@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "fn-main",
-  template: "<page-router-outlet></page-router-outlet>"
+    selector: "ns-app",
+    templateUrl: "app.component.html",
 })
-export class AppComponent { };
+
+export class AppComponent { }
