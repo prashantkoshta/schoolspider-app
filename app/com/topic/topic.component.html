@@ -12,7 +12,9 @@
 <StackLayout class="page">
     <ListView [items]="items" class="list-group">
         <ng-template let-item="item">
-                <Label [nsRouterLink]="['/quizs',item.class,item.subject,item.lesson,item.topic]" [text]="item.topic"
+                <!-- Label [nsRouterLink]="['/quizs',item.class,item.subject,item.lesson,item.topic]" [text]="item.topic"
+                class="list-group-item"></Label-->
+                <Label (tap)="getQuestionList(item)" [text]="item.topic"
                 class="list-group-item"></Label>
         </ng-template>
     </ListView>

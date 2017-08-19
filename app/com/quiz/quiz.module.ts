@@ -13,6 +13,7 @@ import { ConstantsService } from "../../shared/constants.service";
 import { QuizRouting } from "./quiz.routing";
 import { QuizComponent } from "./quiz.component";
 import { RadioOptionsComponent } from "./radiooptions/radiooptions.component";
+import { MultiSelectOptionsComponent } from "./multiselectoptions/multiselectoptions.component";
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { RadioOptionsComponent } from "./radiooptions/radiooptions.component";
   ],
   declarations: [
     QuizComponent,
-    RadioOptionsComponent
+    RadioOptionsComponent,
+    MultiSelectOptionsComponent
   ],
   providers:[CoreService,ConstantsService]
 })

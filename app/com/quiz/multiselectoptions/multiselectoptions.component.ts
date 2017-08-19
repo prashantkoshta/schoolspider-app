@@ -2,20 +2,16 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute,Router } from "@angular/router";
 import {Page} from "ui/page"
 import {RouterExtensions} from "nativescript-angular/router";
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/Rx';
+
 import { CoreService } from "../../../shared/core.service";
 import { ConstantsService } from "../../../shared/constants.service";
 
-
-
-
 @Component({
-    selector: "ns-radiooptions",
+    selector: "ns-multiselectoptions",
     moduleId: module.id,
-    templateUrl: "./radiooptions.component.html",
+    templateUrl: "./multiselectoptions.component.html",
 })
-export class RadioOptionsComponent implements OnInit, OnDestroy {
+export class MultiSelectOptionsComponent implements OnInit, OnDestroy {
     item: object;
     constructor(
         private route: ActivatedRoute,
@@ -29,19 +25,9 @@ export class RadioOptionsComponent implements OnInit, OnDestroy {
            // console.log("NAV again");
            // this.initScreen();
        // });
-        this.item = this._constantsService.selectedQuestion;
-        console.log("ROUTING PARAM : "+this._constantsService.qIndex); 
-       /* Observable.of(this._constantsService.selectedQuestion)
-       // .map(v => v)
-       // .filter(v => true)
-        .subscribe(
-            v => { console.log( v) },
-            e => { console.log( e ) },
-            () => { console.log('complete') }
-        );
 
-*/
-
+       this.item = this._constantsService.selectedQuestion;
+       console.log("ROUTING PARAM : "+this._constantsService.qIndex); 
      }
    
     ngOnInit(): void {
@@ -55,6 +41,7 @@ export class RadioOptionsComponent implements OnInit, OnDestroy {
         console.log("clicked OnDestroy");  
     }
 
+   
     onPageLoaded():void{
         console.log("clicked onPageLoaded");  
     }

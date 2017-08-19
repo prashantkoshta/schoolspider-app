@@ -25,7 +25,15 @@ export class CoreService {
             },
             "count":10,
             "fields":{
-               
+                "_id":1,
+                "class":1,
+                "subject":1,
+                "lesson":1,
+                "topic":1,
+                "q":1,
+                "options":1,
+                "ans":1,
+                "qtype" :1
             }
             
         }
@@ -108,7 +116,7 @@ export class CoreService {
             "fields":{
                 "_id":1,
                 "class":1,
-                "class-title":1
+                "class_title":1
             }
             
         }
@@ -116,7 +124,7 @@ export class CoreService {
     }
 
     private getServiceData(param):Observable<Array<object>>{
-        console.log(JSON.stringify(param));
+        console.log("Input query :"+JSON.stringify(param));
         let options:RequestOptions = new RequestOptions({
             method: "post",
             body:param,
@@ -127,7 +135,7 @@ export class CoreService {
         .map((response: Response) => <Array<object>> response.json())
         .do(data => {})
         .catch(this.handleError)
-        .do(data => console.log("All"+JSON.stringify(data)))
+        .do(data => console.log("Results:"+JSON.stringify(data)));
     }
 
     private handleError(error:Response):Observable<any>{

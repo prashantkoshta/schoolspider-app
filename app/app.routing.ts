@@ -17,7 +17,7 @@ const routes: Routes = [
     { path: "standards", component: StandardComponent },
     { path: "subjects/:clas", component: SubjectComponent },
     { path: "lessons/:clas/:sub", component: LessonComponent },
-    { path: "topics/:clas/:lesson/:sub", component: TopicComponent }
+    { path: "topics/:clas/:sub/:lesson", component: TopicComponent }
     /*,
     { path: "quizs/:clas/:lesson/:sub/:topic", component: QuizComponent,
         children: [
