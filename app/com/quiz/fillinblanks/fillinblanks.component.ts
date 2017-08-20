@@ -15,8 +15,7 @@ import { IQuiz } from "../iquiz";
 })
 export class FillInBlanksComponent implements OnInit, OnDestroy, IQuiz {
     item: any;
-    selectedOption:string;
-    selectedOptionIndexList:number[];
+    selectedOptionTextList:string[];
     feedback:string;
     constructor(
         private route: ActivatedRoute,
@@ -28,7 +27,7 @@ export class FillInBlanksComponent implements OnInit, OnDestroy, IQuiz {
         public assets:AssestsService
     ) {
        let q:any = this._constantsService.selectedQuestion;
-       this.selectedOptionIndexList = new Array<number>(q.options.length);
+       this.selectedOptionTextList = new Array<string>(q.options.length);
        this.item = this._constantsService.selectedQuestion;
     }
 
@@ -36,7 +35,7 @@ export class FillInBlanksComponent implements OnInit, OnDestroy, IQuiz {
         this.feedback = "";
         this._constantsService.selectedQuestion=this._constantsService.questions[x];
         let q:any = this._constantsService.selectedQuestion;
-        this.selectedOptionIndexList = new Array<number>(q.options.length);
+        this.selectedOptionTextList = new Array<string>(q.options.length);
         this.item = this._constantsService.selectedQuestion;
     } 
      
@@ -66,22 +65,21 @@ export class FillInBlanksComponent implements OnInit, OnDestroy, IQuiz {
     }
 
     onSelect(args):void{
-        let n:number = this.selectedOptionIndexList[args.index];
+       /* let n:string = this.selectedOptionTextList[args.index];
         if( n == undefined) {
-            this.selectedOptionIndexList[args.index] = 1;
+            this.selectedOptionTextList[args.index] = "";
         }else{
-            this.selectedOptionIndexList[args.index] = (n==1)?0:1
-        }
-        this.selectedOption = this.item.options[args.index];
+            this.selectedOptionTextList[args.index] = (n==1)?0:1
+        }*/
+       // this.selectedOption = this.item.options[args.index];
     }
 
     onSubmit():void{
-        let tIndexChecked:Array<number> = []; 
-        for(var i=0;i<this.selectedOptionIndexList.length;i++){
-
-            console.log("clicked onPageLoaded"+this.selectedOptionIndexList[i]);  
-            if(this.selectedOptionIndexList[i] == 1){
-                tIndexChecked.push(i);
+        let tIndexChecked:Array<string> = []; 
+        for(var i=0;i<this.selectedOptionTextList.length;i++){
+            console.log("clicked onPageLoaded"+this.selectedOptionTextList[i]);  
+            if(this.selectedOptionTextList[i]){
+                tIndexChecked.push(this.selectedOptionTextList[i]);
             }
         }
         if(tIndexChecked.toString() == this.item.ans.toString()){
