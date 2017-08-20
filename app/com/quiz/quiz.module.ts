@@ -14,6 +14,7 @@ import { QuizRouting } from "./quiz.routing";
 import { QuizComponent } from "./quiz.component";
 import { RadioOptionsComponent } from "./radiooptions/radiooptions.component";
 import { MultiSelectOptionsComponent } from "./multiselectoptions/multiselectoptions.component";
+import { FillInBlanksComponent } from "./fillinblanks/fillinblanks.component";
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { MultiSelectOptionsComponent } from "./multiselectoptions/multiselectopt
   declarations: [
     QuizComponent,
     RadioOptionsComponent,
-    MultiSelectOptionsComponent
+    MultiSelectOptionsComponent,
+    FillInBlanksComponent
   ],
   providers:[CoreService,ConstantsService]
 })

@@ -34,15 +34,15 @@ export class TopicComponent implements OnInit {
         error =>{
             console.log(">>>>>>ERROR>>>>>>");
         });
+
+        //this._constantsService.subjectQIndexRxjs.unsubscribe();
     }
     getQuestionList(item:object){
-        console.log("Tab Click");
         this._coreService.getQuestions(item["class"],item["subject"],item["lesson"],item["topic"]).subscribe(data => {
             this._constantsService.questions =  data;
             this._constantsService.qIndex = 0
             this._constantsService.routeParam = item;
             this._constantsService.selectedQuestion = this._constantsService.questions [0];
-            //this.router.navigate(["/quizs/single-select",this._constantsService.qIndex]);
             this.routerExtensions.navigate(["/quizs/single-select",this._constantsService.qIndex]);
         },
         error =>{

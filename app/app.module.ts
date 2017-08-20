@@ -13,18 +13,17 @@ import { AppComponent } from "./app.component";
 
 import { ItemService } from "./item/item.service";
 import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
 
 //
 import { StandardComponent } from "./com/standard/standard.component";
 import { LessonComponent } from "./com/lesson/lesson.component";
 import { SubjectComponent } from "./com/subject/subject.component";
 import { TopicComponent } from "./com/topic/topic.component";
-//import { QuizComponent } from "./com/quiz/quiz.component";
-
 //
 import { CoreService } from "./shared/core.service";
 import { ConstantsService } from "./shared/constants.service";
+import { AssestsService } from "./shared/assets.service";
+
 
 
 //custome module
@@ -51,7 +50,6 @@ import { QuizModule } from "./com/quiz/quiz.module";
     declarations: [
         AppComponent,
         ItemsComponent,
-        ItemDetailComponent,
         StandardComponent,
         LessonComponent,
         SubjectComponent,
@@ -60,7 +58,8 @@ import { QuizModule } from "./com/quiz/quiz.module";
     providers: [
         ItemService,
         CoreService,
-        ConstantsService
+        ConstantsService,
+        AssestsService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

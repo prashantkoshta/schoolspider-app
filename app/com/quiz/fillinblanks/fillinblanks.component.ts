@@ -9,11 +9,11 @@ import { AssestsService } from "../../../shared/assets.service";
 import { IQuiz } from "../iquiz";
 
 @Component({
-    selector: "ns-multiselectoptions",
+    selector: "ns-fillinblanks",
     moduleId: module.id,
-    templateUrl: "./multiselectoptions.component.html",
+    templateUrl: "./fillinblanks.component.html",
 })
-export class MultiSelectOptionsComponent implements OnInit, OnDestroy, IQuiz {
+export class FillInBlanksComponent implements OnInit, OnDestroy, IQuiz {
     item: any;
     selectedOption:string;
     selectedOptionIndexList:number[];
@@ -78,6 +78,8 @@ export class MultiSelectOptionsComponent implements OnInit, OnDestroy, IQuiz {
     onSubmit():void{
         let tIndexChecked:Array<number> = []; 
         for(var i=0;i<this.selectedOptionIndexList.length;i++){
+
+            console.log("clicked onPageLoaded"+this.selectedOptionIndexList[i]);  
             if(this.selectedOptionIndexList[i] == 1){
                 tIndexChecked.push(i);
             }
