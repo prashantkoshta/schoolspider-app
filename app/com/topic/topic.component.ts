@@ -3,6 +3,7 @@ import { ActivatedRoute,Router } from "@angular/router";
 import {RouterExtensions} from "nativescript-angular/router";
 import { CoreService } from "../../shared/core.service";
 import { ConstantsService } from "../../shared/constants.service";
+import { LoggerService } from "../../shared/logger.service";
 
 @Component({
     selector: "ns-topic",
@@ -20,7 +21,8 @@ export class TopicComponent implements OnInit {
         private router:Router,
         private routerExtensions: RouterExtensions,
         private _coreService:CoreService,
-        private _constantsService:ConstantsService
+        private _constantsService:ConstantsService,
+        private logger:LoggerService
     ) { }
 
     ngOnInit(): void {
@@ -32,10 +34,8 @@ export class TopicComponent implements OnInit {
             this.items =  data;
         },
         error =>{
-            console.log(">>>>>>ERROR>>>>>>");
+            this.logger.log("this._coreService.getTopic ERROR");
         });
-
-        //this._constantsService.subjectQIndexRxjs.unsubscribe();
     }
     getQuestionList(item:object){
         this._coreService.getQuestions(item["class"],item["subject"],item["lesson"],item["topic"]).subscribe(data => {
@@ -43,10 +43,11 @@ export class TopicComponent implements OnInit {
             this._constantsService.qIndex = 0
             this._constantsService.routeParam = item;
             this._constantsService.selectedQuestion = this._constantsService.questions [0];
-            this.routerExtensions.navigate(["/quizs/single-select",this._constantsService.qIndex]);
+            var q = this._constantsService.selectedQuestion;
+            this.routerExtensions.navigate(["/quizs/"+q["qtype"],this._constantsService.qIndex]);
         },
         error =>{
-            console.log(">>>>>>ERROR>>>>>>");
+            this.logger.log("this._coreService.getQuestions ERROR");
         });
     }
 }

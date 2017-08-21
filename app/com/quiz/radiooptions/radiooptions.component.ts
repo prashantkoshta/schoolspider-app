@@ -5,6 +5,7 @@ import {RouterExtensions} from "nativescript-angular/router";
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { CoreService } from "../../../shared/core.service";
+import { LoggerService } from "../../../shared/logger.service";
 import { ConstantsService } from "../../../shared/constants.service";
 import { AssestsService } from "../../../shared/assets.service";
 import { IQuiz } from "../iquiz";
@@ -29,7 +30,8 @@ export class RadioOptionsComponent implements OnInit, OnDestroy,IQuiz {
         private routerExtensions: RouterExtensions,
         private _coreService:CoreService,
         private _constantsService:ConstantsService,
-        public assets:AssestsService
+        public assets:AssestsService,
+        private logger:LoggerService
     ) {
         this.selectedOptionIndex = -1;
         this.item =  this._constantsService.selectedQuestion;
@@ -45,24 +47,24 @@ export class RadioOptionsComponent implements OnInit, OnDestroy,IQuiz {
         this._constantsService.subjectQIndexRxjs.subscribe(
             x => {
                 this.onQuestionChange(x);
-                console.log('onNext:'+x)
+                this.logger.log('onNext:'+x)
             },
             e => {
-                console.log('onError:'+e)
+                this.logger.log('onError:'+e)
             },
             () => {
-                console.log('onCompleted')
+                this.logger.log('onCompleted')
             }
         );
 
     }
 
     ngOnDestroy(): void {
-        console.log("clicked OnDestroy");  
+        this.logger.log("clicked OnDestroy");  
     }
 
     onPageLoaded():void{
-        console.log("clicked onPageLoaded");  
+        this.logger.log("clicked onPageLoaded");  
     }
 
 

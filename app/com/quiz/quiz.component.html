@@ -1,11 +1,9 @@
 <ActionBar [title]="title" class="action-bar"></ActionBar>
 <StackLayout class="page">
-    <!--Label class="h4" text="Quiz"></Label -->
     <router-outlet outlet="question"></router-outlet>
     <ng-template [ngIf]="!isLastData">
         <Button (tap)="onClickNext()" text="Next" class="list-group-item"></Button>
     </ng-template>
-    
 </StackLayout>
 
 

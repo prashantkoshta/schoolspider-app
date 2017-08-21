@@ -1,17 +1,15 @@
 <StackLayout>
-    <Label class="h2" [text]="item.q.text"></Label>
+    <Label class="h2" [text]="item.q.text" textWrap="true" width="100%"></Label>
     <ListView [items]="item.options" class="list-group">
             <ng-template let-opt="item" let-i="index">
                     <DockLayout stretchLastChild="true">
-                            <!-- Image [src]="(selectedOptionIndexList[i] = 0)?assets.CHECK_BOX_CHECKED:assets.CHECK_BOX_UNCHECKED" dock="left" stretch ="none"></Image --> 
                             <Label [text]="opt" class="h2"></Label>
-                            <TextField text={{selectedOptionTextList[i]}} class="h2"></TextField>
+                            <TextField  [(ngModel)]="selectedOptionTextList[i]" class="h2"></TextField>
                     </DockLayout>
             </ng-template>
         </ListView>
     <Button (tap)="onSubmit()" text="Submit"></Button>
     <Label [text]="feedback" class="h2"></Label>
-   
 </StackLayout>
 
 

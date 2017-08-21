@@ -6,15 +6,19 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import {ConstantsService} from "./constants.service";
+import { LoggerService } from "./logger.service";
 
 @Injectable()
 export class CoreService {
-    constructor(private _http:Http, private _constants:ConstantsService) { 
-    }
+    constructor(private _http:Http, 
+        private _constants:ConstantsService,
+        private logger:LoggerService
+    ) { }
 
     public getQuestions(clas:string,sub:string,lesson:string,topic:string):Observable<Array<object>> {
         var data = {
             "query":{
+                // "_id":"599988de8bd701e99dc129eb"
                 "class":clas,
                 "subject":sub,
                 "lesson":lesson,
@@ -64,7 +68,7 @@ export class CoreService {
     }
 
     public getLessons(clas:string,sub:string):Observable<Array<object>> {
-        console.log("\n%%%%%\n",clas);
+        this.logger.log(clas);
         var data = {
             "query":{
                 "class":clas,
@@ -124,7 +128,7 @@ export class CoreService {
     }
 
     private getServiceData(param):Observable<Array<object>>{
-        console.log("Input query :"+JSON.stringify(param));
+        this.logger.log(JSON.stringify(param));
         let options:RequestOptions = new RequestOptions({
             method: "post",
             body:param,
@@ -135,11 +139,11 @@ export class CoreService {
         .map((response: Response) => <Array<object>> response.json())
         .do(data => {})
         .catch(this.handleError)
-        .do(data => console.log("Results:"+JSON.stringify(data)));
+        .do(data => this.logger.log("Results:"+JSON.stringify(data)));
     }
 
     private handleError(error:Response):Observable<any>{
-        console.log("handleError",error.toString());
+        this.logger.log("handleError"+error.toString());
         return Observable.throw(error.json().error || 'Server error');
     }
 }

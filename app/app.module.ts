@@ -1,7 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptModule} from "nativescript-angular/nativescript.module";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
-
+import {NativeScriptFormsModule} from "nativescript-angular/forms";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -23,6 +23,8 @@ import { TopicComponent } from "./com/topic/topic.component";
 import { CoreService } from "./shared/core.service";
 import { ConstantsService } from "./shared/constants.service";
 import { AssestsService } from "./shared/assets.service";
+import { LoggerService } from "./shared/logger.service";
+
 
 
 
@@ -40,6 +42,7 @@ import { QuizModule } from "./com/quiz/quiz.module";
     ],
     imports: [
         NativeScriptModule,
+        NativeScriptFormsModule,
         NativeScriptHttpModule,
         AppRoutingModule,
         CommonModule,
@@ -59,7 +62,8 @@ import { QuizModule } from "./com/quiz/quiz.module";
         ItemService,
         CoreService,
         ConstantsService,
-        AssestsService
+        AssestsService,
+        LoggerService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

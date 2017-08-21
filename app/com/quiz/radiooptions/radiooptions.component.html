@@ -1,9 +1,5 @@
 <StackLayout>
-    <Label class="h2" [text]="item.q.text"></Label>
-    <!--StackLayout *ngFor="let option of item.options" class="list-group-item">
-        <Label (tap)="onSelect(option)" [text]="option" class="h2"></Label>
-    </StackLayout-->
-
+    <Label class="h2" [text]="item.q.text" textWrap="true" width="100%"></Label>
     <ListView [items]="item.options" class="list-group" (itemTap)="onSelect($event)">
         <ng-template let-opt="item" let-i="index">
                 <DockLayout stretchLastChild="true">
@@ -15,10 +11,6 @@
 
     <Button (tap)="onSubmit()" text="Submit"></Button>
     <Label [text]="feedback" class="h2"></Label>
-    <!--StackLayout>
-        <WebView loaded="webViewLoaded"  touch="webViewTouch" pan="webViewPan" src="<!DOCTYPE html><html><body><h1>My First Heading</h1><p>My first paragraph.</p></body></html>">
-        </WebView>
-    </StackLayout-->
 </StackLayout>
 
 

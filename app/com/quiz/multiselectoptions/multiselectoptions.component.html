@@ -1,6 +1,5 @@
 <StackLayout>
-    <Label class="h2" [text]="item.q.text"></Label>
-
+    <Label class="h2" [text]="item.q.text" textWrap="true" width="100%"></Label>
     <ListView [items]="item.options" class="list-group" (itemTap)="onSelect($event)">
         <ng-template let-opt="item" let-i="index">
                 <DockLayout stretchLastChild="true">

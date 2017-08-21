@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute,Router } from "@angular/router";
 import {Page} from "ui/page"
 import {RouterExtensions} from "nativescript-angular/router";
-
+import { LoggerService } from "../../../shared/logger.service";
 import { CoreService } from "../../../shared/core.service";
 import { ConstantsService } from "../../../shared/constants.service";
 import { AssestsService } from "../../../shared/assets.service";
@@ -25,7 +25,8 @@ export class MultiSelectOptionsComponent implements OnInit, OnDestroy, IQuiz {
         private routerExtensions: RouterExtensions,
         private _coreService:CoreService,
         private _constantsService:ConstantsService,
-        public assets:AssestsService
+        public assets:AssestsService,
+        private logger:LoggerService
     ) {
        let q:any = this._constantsService.selectedQuestion;
        this.selectedOptionIndexList = new Array<number>(q.options.length);
@@ -45,24 +46,24 @@ export class MultiSelectOptionsComponent implements OnInit, OnDestroy, IQuiz {
         this._constantsService.subjectQIndexRxjs.subscribe(
             x => {
                 this.onQuestionChange(x);
-                console.log('onNext:'+x)
+                this.logger.log('onNext:'+x)
             },
             e => {
-                console.log('onError:'+e)
+                this.logger.log('onError:'+e)
             },
             () => {
-                console.log('onCompleted')
+                this.logger.log('onCompleted')
             }
         );
     }
 
     ngOnDestroy(): void {
-        console.log("clicked OnDestroy");  
+        this.logger.log("clicked OnDestroy");  
     }
 
    
     onPageLoaded():void{
-        console.log("clicked onPageLoaded");  
+        this.logger.log("clicked onPageLoaded");  
     }
 
     onSelect(args):void{
