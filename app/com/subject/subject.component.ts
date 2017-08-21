@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 
 import { CoreService } from "../../shared/core.service";
 import { LoggerService } from "../../shared/logger.service";
+import { ConstantsService } from "../../shared/constants.service";
 
 @Component({
     selector: "ns-subject",
@@ -16,13 +17,14 @@ export class SubjectComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private _coreService:CoreService,
-        private logger:LoggerService
+        private logger:LoggerService,
+        public constantsService:ConstantsService
     ) { }
 
     ngOnInit(): void {
         this.title = "Subject";
         this.clas = this.route.snapshot.params["clas"];  
-        this._coreService.getSubjects(this.clas).subscribe(data => {
+        this._coreService.getSubjects( this.constantsService.navState ,this.clas).subscribe(data => {
             this.items =  data;
         },
         error =>{

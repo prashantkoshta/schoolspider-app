@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 
 import { CoreService } from "../../shared/core.service";
 import { LoggerService } from "../../shared/logger.service";
+import { ConstantsService } from "../../shared/constants.service";
 
 @Component({
     selector: "ns-standard",
@@ -15,12 +16,17 @@ export class StandardComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private _coreService:CoreService,
-        private logger:LoggerService
-    ) { }
+        private logger:LoggerService,
+        public constantsService:ConstantsService
+    ) {
+       
+     }
 
     ngOnInit(): void {
         this.title = "Class";
-        this._coreService.getClasses().subscribe(data => {
+        this.logger.log(this.route.snapshot.params["navstart"]);
+        this.constantsService.navState = this.route.snapshot.params["navstart"];
+        this._coreService.getClasses(this.constantsService.navState).subscribe(data => {
             this.items =  data;
         },
         error =>{

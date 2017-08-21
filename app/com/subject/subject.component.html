@@ -12,7 +12,7 @@
 <StackLayout class="page">
     <ListView [items]="items" class="list-group">
         <ng-template let-item="item">
-                <Label [nsRouterLink]="['/lessons',item.class,item.subject]" [text]="item.subject"
+                <Label [nsRouterLink]="['/lessons',constantsService.navState,item.class,item.subject]" [text]="item.subject"
                 class="list-group-item"></Label>
         </ng-template>
     </ListView>

@@ -30,6 +30,7 @@ import { LoggerService } from "./shared/logger.service";
 
 //custome module
 import { QuizModule } from "./com/quiz/quiz.module";
+import { TutorialModule } from "./com/tutorial/tutorial.module";
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -48,7 +49,8 @@ import { QuizModule } from "./com/quiz/quiz.module";
         CommonModule,
         FormsModule,
         HttpModule,
-        QuizModule
+        QuizModule,
+        TutorialModule
     ],
     declarations: [
         AppComponent,

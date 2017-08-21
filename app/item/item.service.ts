@@ -5,8 +5,8 @@ import { Item } from "./item";
 @Injectable()
 export class ItemService {
     private items = new Array<Item>(
-        { id: 1, name: "Exam", role: "Exam" },
-        { id: 3, name: "Tutorial", role: "Tutorial" }
+        { id: 1, name: "Exam", role: "exam" },
+        { id: 3, name: "Tutorial", role: "tutorial" }
     );
 
     getItems(): Item[] {

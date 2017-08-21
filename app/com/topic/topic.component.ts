@@ -21,7 +21,7 @@ export class TopicComponent implements OnInit {
         private router:Router,
         private routerExtensions: RouterExtensions,
         private _coreService:CoreService,
-        private _constantsService:ConstantsService,
+        public constantsService:ConstantsService,
         private logger:LoggerService
     ) { }
 
@@ -30,7 +30,7 @@ export class TopicComponent implements OnInit {
         this.clas = this.route.snapshot.params["clas"];
         this.subject = this.route.snapshot.params["sub"];   
         this.lesson = this.route.snapshot.params["lesson"];
-        this._coreService.getTopic(this.clas,this.subject,this.lesson).subscribe(data => {
+        this._coreService.getTopic( this.constantsService.navState ,this.clas,this.subject,this.lesson).subscribe(data => {
             this.items =  data;
         },
         error =>{
@@ -38,13 +38,13 @@ export class TopicComponent implements OnInit {
         });
     }
     getQuestionList(item:object){
-        this._coreService.getQuestions(item["class"],item["subject"],item["lesson"],item["topic"]).subscribe(data => {
-            this._constantsService.questions =  data;
-            this._constantsService.qIndex = 0
-            this._constantsService.routeParam = item;
-            this._constantsService.selectedQuestion = this._constantsService.questions [0];
-            var q = this._constantsService.selectedQuestion;
-            this.routerExtensions.navigate(["/quizs/"+q["qtype"],this._constantsService.qIndex]);
+        this._coreService.getQuestions( this.constantsService.navState ,item["class"],item["subject"],item["lesson"],item["topic"]).subscribe(data => {
+            this.constantsService.questions =  data;
+            this.constantsService.qIndex = 0
+            this.constantsService.routeParam = item;
+            this.constantsService.selectedQuestion = this.constantsService.questions [0];
+            var q = this.constantsService.selectedQuestion;
+            this.routerExtensions.navigate(["/quizs/"+q["qtype"],this.constantsService.qIndex]);
         },
         error =>{
             this.logger.log("this._coreService.getQuestions ERROR");

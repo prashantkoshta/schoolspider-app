@@ -11,10 +11,10 @@ import { TopicComponent } from "./com/topic/topic.component";
 const routes: Routes = [
     { path: "", redirectTo: "/items", pathMatch: "full" },
     { path: "items", component: ItemsComponent },
-    { path: "standards", component: StandardComponent },
-    { path: "subjects/:clas", component: SubjectComponent },
-    { path: "lessons/:clas/:sub", component: LessonComponent },
-    { path: "topics/:clas/:sub/:lesson", component: TopicComponent }
+    { path: "standards/:navstart", component: StandardComponent},
+    { path: "subjects/:navstart/:clas", component: SubjectComponent },
+    { path: "lessons/:navstart/:clas/:sub", component: LessonComponent },
+    { path: "topics/:navstart/:clas/:sub/:lesson", component: TopicComponent }
     
 ];
 

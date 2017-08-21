@@ -1,0 +1,11 @@
+<ActionBar [title]="title" class="action-bar"></ActionBar>
+<StackLayout class="page" (swipe)="onSwipe($event)">
+    <router-outlet outlet="tutorial"></router-outlet>
+    <Button width="30%" (tap)="onNext()" text="Next"></Button>
+</StackLayout>
+
+
+
+
+
+
