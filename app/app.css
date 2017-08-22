@@ -10,3 +10,20 @@ of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
 @import 'nativescript-theme-core/css/core.light.css';
+
+.question-page{
+    padding:14;
+}
+
+.center-logo{
+    margin-left:43%;
+}
+
+.center-text{
+    margin-left:36%;
+}
+
+.option-img{
+    margin-top:3;
+}
+

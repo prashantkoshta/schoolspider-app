@@ -1,5 +1,9 @@
-<ActionBar [title]="title" class="action-bar"></ActionBar>
+<ActionBar [title]="title" class="action-bar">
+    <ActionItem (tap)="commonService.navigateToScreenHistoryFlag(['/items'],true)"
+        ios:icon="{{assets.ICON_HOME}}" ios.position="right"
+        android:icon="{{assets.ICON_HOME}}" android.position="right"></ActionItem>
+</ActionBar>
 <StackLayout class="page" (swipe)="onSwipe($event)">
     <router-outlet outlet="tutorial"></router-outlet>
-    <Button width="30%" (tap)="onNext()" text="Next"></Button>
+    <!-- Button width="30%" (tap)="onNext()" text="Next"></Button -->
 </StackLayout>

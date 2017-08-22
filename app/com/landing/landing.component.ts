@@ -1,30 +1,31 @@
 import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
-import { Item } from "./item";
-import { ItemService } from "./item.service";
-import { AssestsService } from "../shared/assets.service";
-import { LoggerService } from "../shared/logger.service";
-import { ConstantsService } from "../shared/constants.service";
+import { AssestsService } from "../../shared/assets.service";
+import { LoggerService } from "../../shared/logger.service";
+import { ConstantsService } from "../../shared/constants.service";
+import {Page} from "ui/page";
 
 @Component({
-    selector: "ns-items",
+    selector: "ns-landing",
     moduleId: module.id,
-    templateUrl: "./items.component.html",
+    templateUrl: "./landing.component.html",
 })
-export class ItemsComponent implements OnInit {
-    items: Item[];
 
-    constructor(private itemService: ItemService, 
+export class LandingComponent implements OnInit {
+    constructor(
     private routerExtensions:RouterExtensions,
     public assets:AssestsService,
     private logger:LoggerService,
-    public constantsService:ConstantsService
-) { }
+    public constantsService:ConstantsService,
+    private page: Page) {
+        page.actionBarHidden = true;
+    }
 
     ngOnInit(): void {
-        this.items = this.itemService.getItems();
+        
 
-        //
+
+
         //Uncomment for testing spcific question layout
         
         //For Question

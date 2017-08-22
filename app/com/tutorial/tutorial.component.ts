@@ -5,6 +5,8 @@ import {RouterExtensions} from "nativescript-angular/router";
 import { CoreService } from "../../shared/core.service";
 import { LoggerService } from "../../shared/logger.service";
 import { ConstantsService } from "../../shared/constants.service";
+import { CommonService } from "../../shared/common.service";
+import { AssestsService } from "../../shared/assets.service";
 
 
 @Component({
@@ -22,7 +24,9 @@ export class TutorialComponent implements OnInit {
         private routerExtensions: RouterExtensions,
         private _coreService:CoreService,
         public constantsService:ConstantsService,
-        private logger:LoggerService
+        public commonService:CommonService,
+        private logger:LoggerService,
+        public assets:AssestsService
     ) { 
         this.title = "Tutors";
         this.currentpage = this.nofopage = -1;

@@ -12,6 +12,8 @@ import 'rxjs/add/observable/of';
 export class ConstantsService {
     public endpoint:string = "https://sspider-api.herokuapp.com/spiderapi";
 
+
+    public appConfigData:any;
     //For Quiz
     public questions: object[];
     public selectedQuestion:object;
@@ -28,10 +30,30 @@ export class ConstantsService {
     public selectedPageUrl:string;
     public subjectPageRxjs:Subject<number>;
 
+
+
+    //
+    public ANIMATION_ROLLIN:any;
+
     constructor() {
         this.subjectQIndexRxjs = new Subject<number>();
         this.subjectPageRxjs = new Subject<number>();
+
+
+
+        //
+        this.ANIMATION_ROLLIN = {
+            animated:true,
+            transition: {
+                name: "rollIn",
+                duration: 600,
+                curve: "linear"
+            }
+        }
     }
+
+
+  
 
    
 }

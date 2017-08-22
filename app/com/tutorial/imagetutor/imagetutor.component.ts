@@ -31,7 +31,7 @@ export class ImageTutorComponent implements OnInit, OnDestroy,ITutorial {
         public assets:AssestsService,
         private logger:LoggerService
     ) {
-
+        
      }
 
    
@@ -55,7 +55,7 @@ export class ImageTutorComponent implements OnInit, OnDestroy,ITutorial {
     onPageChange(x):void{
         this.pagenumber = x;
         this.refurl = this.constantsService.selectedPageUrl;
-        this.logger.log("Page number now :"+x);  
+        this.logger.log("Page number now :"+x); 
     }
 
     ngOnDestroy(): void {

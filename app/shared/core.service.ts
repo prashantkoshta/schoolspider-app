@@ -15,6 +15,17 @@ export class CoreService {
         private logger:LoggerService
     ) { }
 
+    public getAppDataConfig(){
+        var data = {
+                    "collection":"appconfig",
+                    "querytype":"findone",
+                    "query":{
+                        "appid" : "schoolspider"
+                    }
+        };
+        return this.getServiceData(data,"/fetchData");
+    }
+
     public getQuestions(doctype:string,clas:string,sub:string,lesson:string,topic:string):Observable<Array<object>> {
         var data = {
             "query":{

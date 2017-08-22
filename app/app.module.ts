@@ -19,11 +19,13 @@ import { StandardComponent } from "./com/standard/standard.component";
 import { LessonComponent } from "./com/lesson/lesson.component";
 import { SubjectComponent } from "./com/subject/subject.component";
 import { TopicComponent } from "./com/topic/topic.component";
+import { LandingComponent } from "./com/landing/landing.component";
 //
 import { CoreService } from "./shared/core.service";
 import { ConstantsService } from "./shared/constants.service";
 import { AssestsService } from "./shared/assets.service";
 import { LoggerService } from "./shared/logger.service";
+import { CommonService } from "./shared/common.service";
 
 
 
@@ -58,19 +60,23 @@ import { TutorialModule } from "./com/tutorial/tutorial.module";
         StandardComponent,
         LessonComponent,
         SubjectComponent,
-        TopicComponent
+        TopicComponent,
+        LandingComponent
     ],
     providers: [
         ItemService,
         CoreService,
         ConstantsService,
         AssestsService,
-        LoggerService
+        LoggerService,
+        CommonService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
 })
+
+
 /*
 Pass your application module to the bootstrapModule function located in main.ts to start your app
 */

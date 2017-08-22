@@ -75,9 +75,9 @@ export class RadioOptionsComponent implements OnInit, OnDestroy,IQuiz {
 
     onSubmit():void{
         if(this.selectedOptionIndex == this.item.ans[0]-1){
-            this.feedback = "Correct";
+            this.feedback = "Correct"
         }else{
-            this.feedback = "InCorrect";
+            this.feedback = "Incorrect"
         }
     }
 }

@@ -88,7 +88,7 @@ export class FillInBlanksComponent implements OnInit, OnDestroy, IQuiz {
         if(tIndexChecked.toString() == this.item.ans.toString()){
             this.feedback = "Correct";
         }else{
-            this.feedback = "InCorrect";
+            this.feedback = "Incorrect";
         }
     }
 }

@@ -1,4 +1,4 @@
-<StackLayout>
+<StackLayout class="question-page">
     <Label class="h2" [text]="item.q.text" textWrap="true" width="100%"></Label>
     <ListView [items]="item.options" class="list-group">
             <ng-template let-opt="item" let-i="index">
@@ -8,8 +8,8 @@
                     </DockLayout>
             </ng-template>
         </ListView>
-    <Button (tap)="onSubmit()" text="Submit"></Button>
-    <Label [text]="feedback" class="h2"></Label>
+    <Button (tap)="onSubmit()" width="30%" text="Submit"></Button>
+    <Label [text]="feedback" textWrap="true" width="100%" class="h2"></Label>
 </StackLayout>
 
 

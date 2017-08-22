@@ -1,15 +1,15 @@
-<StackLayout>
+<StackLayout class="question-page">
     <Label class="h2" [text]="item.q.text" textWrap="true" width="100%"></Label>
     <ListView [items]="item.options" class="list-group" (itemTap)="onSelect($event)">
         <ng-template let-opt="item" let-i="index">
                 <DockLayout stretchLastChild="true">
-                        <Image [src]="(selectedOptionIndexList[i] = 0)?assets.CHECK_BOX_CHECKED:assets.CHECK_BOX_UNCHECKED" dock="left" stretch ="none"></Image> 
+                        <Image class="option-img" [src]="(selectedOptionIndexList[i] = 0)?assets.CHECK_BOX_CHECKED:assets.CHECK_BOX_UNCHECKED" dock="left" stretch ="none"></Image> 
                         <Label [text]="opt" class="h2"></Label>
                 </DockLayout>
         </ng-template>
     </ListView>
-    <Button (tap)="onSubmit()" text="Submit"></Button>
-    <Label [text]="feedback" class="h2"></Label>
+    <Button (tap)="onSubmit()" width="30%" text="Submit"></Button>
+    <Label [text]="feedback" textWrap="true" width="100%" class="h3"></Label>
 </StackLayout>
 
 
