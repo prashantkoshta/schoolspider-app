@@ -1,11 +1,11 @@
 {
-	"ProjectName": "sample-Groceries",
-	"ProjectGuid": "{aef80a5b-1d98-46c7-bf09-6269b23127ac}",
+	"ProjectName": "schoolspider",
+	"ProjectGuid": "",
 	"projectVersion": 1,
-	"AppIdentifier": "com.telerik.sampleGroceries",
-	"DisplayName": "Groceries",
+	"AppIdentifier": "com.schoolspider.school",
+	"DisplayName": "schoool spider",
 	"Author": "",
-	"Description": "A NativeScript-built iOS and Android app for managing grocery lists",
+	"Description": "To keep handy your books and exam.",
 	"BundleVersion": "1.0",
 	"AndroidVersionCode": "1",
 	"iOSDeviceFamily": [
@@ -13,7 +13,7 @@
 		"2"
 	],
 	"iOSBackgroundMode": [],
-	"ProjectTypeGuids": "{F0A65104-D4F4-4012-B799-F612D75820F6}",
+	"ProjectTypeGuids": "",
 	"AndroidPermissions": [
 		"android.permission.INTERNET"
 	],

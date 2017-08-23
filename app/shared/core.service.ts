@@ -49,7 +49,8 @@ export class CoreService {
                 "q":1,
                 "options":1,
                 "ans":1,
-                "qtype" :1
+                "qtype" :1,
+                "keyboardtype":1
             }
             
         }
@@ -359,7 +360,7 @@ export class CoreService {
     }
 
     private getServiceData(param,api:string):Observable<Array<object>>{
-        this.logger.log(JSON.stringify(param));
+        this.logger.log("PARMAS   "+JSON.stringify(param));
         let options:RequestOptions = new RequestOptions({
             method: "post",
             body:param,
@@ -370,7 +371,7 @@ export class CoreService {
         .map((response: Response) => <Array<object>> response.json())
         .do(data => {})
         .catch(this.handleError)
-        .do(data => this.logger.log("Results:"+JSON.stringify(data)));
+        .do(data => this.logger.log("Results:###########"));
     }
 
     private handleError(error:Response):Observable<any>{

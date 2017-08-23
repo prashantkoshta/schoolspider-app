@@ -15,8 +15,10 @@ import { IQuiz } from "../iquiz";
     moduleId: module.id,
     templateUrl: "./fillinblanks.component.html",
 })
+
+
 export class FillInBlanksComponent implements OnInit, OnDestroy, IQuiz {
-    item: any;
+    questionData: any;
     selectedOptionTextList:string[];
     feedback:string;
     constructor(
@@ -31,7 +33,7 @@ export class FillInBlanksComponent implements OnInit, OnDestroy, IQuiz {
     ) {
        let q:any = this._constantsService.selectedQuestion;
        this.selectedOptionTextList = new Array<string>(q.options.length);
-       this.item = this._constantsService.selectedQuestion;
+       this.questionData = this._constantsService.selectedQuestion;
     }
 
     private onQuestionChange(x:number) {
@@ -39,7 +41,7 @@ export class FillInBlanksComponent implements OnInit, OnDestroy, IQuiz {
         this._constantsService.selectedQuestion=this._constantsService.questions[x];
         let q:any = this._constantsService.selectedQuestion;
         this.selectedOptionTextList = new Array<string>(q.options.length);
-        this.item = this._constantsService.selectedQuestion;
+        this.questionData = this._constantsService.selectedQuestion;
     } 
      
    
@@ -85,7 +87,7 @@ export class FillInBlanksComponent implements OnInit, OnDestroy, IQuiz {
                 tIndexChecked.push(this.selectedOptionTextList[i]);
             }
         }
-        if(tIndexChecked.toString() == this.item.ans.toString()){
+        if(tIndexChecked.toString() == this.questionData.ans.toString()){
             this.feedback = "Correct";
         }else{
             this.feedback = "Incorrect";

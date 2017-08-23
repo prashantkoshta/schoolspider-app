@@ -1,10 +1,10 @@
 <StackLayout class="question-page">
-    <Label class="h2" [text]="item.q.text" textWrap="true" width="100%"></Label>
-    <ListView [items]="item.options" class="list-group">
+    <Label class="h2" [text]="questionData.q.text" textWrap="true" width="100%"></Label>
+    <ListView [items]="questionData.options" class="list-group">
             <ng-template let-opt="item" let-i="index">
                     <DockLayout stretchLastChild="true">
                             <Label [text]="opt" class="h2"></Label>
-                            <TextField  [(ngModel)]="selectedOptionTextList[i]" class="h2"></TextField>
+                            <TextField secure="false" [keyboardType]="questionData.keyboardtype" [(ngModel)]="selectedOptionTextList[i]" class="h2"></TextField>
                     </DockLayout>
             </ng-template>
         </ListView>
