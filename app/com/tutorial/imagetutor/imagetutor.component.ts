@@ -61,8 +61,8 @@ export class ImageTutorComponent implements OnInit, OnDestroy,ITutorial {
     onPageChange(x):void{
         this.pagenumber = x;
         this.refurl = this.constantsService.selectedPageUrl;
-        this.logger.log("Page number now :"+x); 
-        this.commonService.showLoader(this.page);
+        //this.logger.log("Page number now :"+x); 
+        this.commonService.showLoader();
     }
 
     ngOnDestroy(): void {

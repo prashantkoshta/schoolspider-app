@@ -11,8 +11,8 @@ import { Subscription } from 'rxjs/Subscription';
 
 //
 //import { View } from "tns-core-modules/ui/core/view";
-//import {LoadingIndicator} from "nativescript-loading-indicator";
-import {Page} from "ui/page";
+import {LoadingIndicator} from "nativescript-loading-indicator";
+// import {Page} from "ui/page";
 
 //declare var MBProgressHUDModeDeterminate, MBProgressHUDModeAnnularDeterminate, MBProgressHUDModeDeterminateHorizontalBar, MBProgressHUDModeText, MBProgressHUDModeCustomView;
 
@@ -21,14 +21,14 @@ import {Page} from "ui/page";
 export class CommonService {
     source;
     subscription:Subscription;
-    //loader:LoadingIndicator;
+    loader:LoadingIndicator;
     options:any;
     constructor(
         private routerExtensions:RouterExtensions,
         private logger:LoggerService,
         public constantsService:ConstantsService
     ) {
-       // this.loader = new LoadingIndicator();
+        this.loader = new LoadingIndicator();
 
 
         
@@ -51,10 +51,10 @@ export class CommonService {
     hideLoader():void{
         /*this.subscription
         this.constantsService.progressValue = 0;*/
-       // this.loader.hide();
+        this.loader.hide();
         
     }
-    showLoader(page:Page):void{
+    showLoader():void{
         this.options = {
             message: 'Loading...',
             progress: 0.65,
@@ -68,20 +68,20 @@ export class CommonService {
               secondaryProgress: 1
             },
             ios: {
-              details: "Additional detail note!",
+              details: "",
               margin: 10,
               dimBackground: true,
-              color: "#4B9ED6", // color of indicator and labels 
+              color: "#b1b1b1", // color of indicator and labels 
               // background box around indicator 
               // hideBezel will override this if true 
-              backgroundColor: "yellow",
-              hideBezel: true, // default false, can hide the surrounding bezel 
-              view: page, // Target view to show on top of (Defaults to entire window) 
+              backgroundColor: "#ffffff",
+              hideBezel: false, // default false, can hide the surrounding bezel 
+             // view: page, // Target view to show on top of (Defaults to entire window) 
              // mode: MBProgressHUDModeDeterminate // see iOS specific options below 
             }
           };
            
-      //  this.loader.show(this.options); 
+        this.loader.show(this.options); 
     }
 
     

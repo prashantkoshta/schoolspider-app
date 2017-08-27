@@ -38,7 +38,8 @@ export class LessonComponent implements OnInit {
         
         var item:any = this.items[args.index];
         if(this.constantsService.navState == "exam"){
-            this.routerExtensions.navigate(['/topics',this.constantsService.navState,item.class,this.subject,item.lesson],
+            this.routerExtensions.navigate(['/topics',this.constantsService.navState,item.class,this.subject,item.lesson]
+            /*,
                 {
                     animated:true,
                     transition: {
@@ -46,10 +47,11 @@ export class LessonComponent implements OnInit {
                         duration: 1000,
                         curve: "linear"
                     }
-                }
+                }*/
             );
         }else if(this.constantsService.navState == "tutorial"){
-            this.routerExtensions.navigate(['/tutorial/page',item.class,this.subject,item.lesson],
+            this.routerExtensions.navigate(['/tutorial/page',item.class,this.subject,item.lesson]
+            /*,
                 {
                     animated:true,
                     transition: {
@@ -58,6 +60,7 @@ export class LessonComponent implements OnInit {
                         curve: "linear"
                     }
                 }
+                */
             );
         }
        
