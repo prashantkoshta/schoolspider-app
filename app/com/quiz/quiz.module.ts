@@ -16,6 +16,9 @@ import { RadioOptionsComponent } from "./radiooptions/radiooptions.component";
 import { MultiSelectOptionsComponent } from "./multiselectoptions/multiselectoptions.component";
 import { FillInBlanksComponent } from "./fillinblanks/fillinblanks.component";
 
+import { QuizRouteResolveService } from "./quizrouteresolve.service";
+
+
 @NgModule({
   imports: [
     NativeScriptModule,
@@ -34,6 +37,10 @@ import { FillInBlanksComponent } from "./fillinblanks/fillinblanks.component";
     MultiSelectOptionsComponent,
     FillInBlanksComponent
   ],
-  providers:[CoreService,ConstantsService]
+  providers:[
+    CoreService,
+    ConstantsService,
+    QuizRouteResolveService
+  ]
 })
 export class QuizModule { }

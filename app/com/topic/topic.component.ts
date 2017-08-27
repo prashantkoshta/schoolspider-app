@@ -30,24 +30,7 @@ export class TopicComponent implements OnInit {
         this.clas = this.route.snapshot.params["clas"];
         this.subject = this.route.snapshot.params["sub"];   
         this.lesson = this.route.snapshot.params["lesson"];
-        this._coreService.getTopic( this.constantsService.navState ,this.clas,this.subject,this.lesson).subscribe(data => {
-            this.items =  data;
-        },
-        error =>{
-            this.logger.log("this._coreService.getTopic ERROR");
-        });
+        this.items = this.route.snapshot.data['routeData'];
     }
-    getQuestionList(item:object){
-        this._coreService.getQuestions( this.constantsService.navState ,item["class"],item["subject"],item["lesson"],item["topic"]).subscribe(data => {
-            this.constantsService.questions =  data;
-            this.constantsService.qIndex = 0
-            this.constantsService.routeParam = item;
-            this.constantsService.selectedQuestion = this.constantsService.questions [0];
-            var q = this.constantsService.selectedQuestion;
-            this.routerExtensions.navigate(["/quizs/"+q["qtype"],this.constantsService.qIndex]);
-        },
-        error =>{
-            this.logger.log("this._coreService.getQuestions ERROR");
-        });
-    }
+    
 }

@@ -7,8 +7,13 @@ import 'rxjs/Rx';
 import { CoreService } from "../../../shared/core.service";
 import { LoggerService } from "../../../shared/logger.service";
 import { ConstantsService } from "../../../shared/constants.service";
+import { CommonService } from "../../../shared/common.service";
 import { AssestsService } from "../../../shared/assets.service";
 import { ITutorial } from "../itutorial";
+//
+import { PDFView } from 'nativescript-pdf-view';
+import { registerElement } from 'nativescript-angular';
+registerElement('PDFView', () => PDFView);
 
 
 
@@ -29,7 +34,8 @@ export class ImageTutorComponent implements OnInit, OnDestroy,ITutorial {
         private _coreService:CoreService,
         private constantsService:ConstantsService,
         public assets:AssestsService,
-        private logger:LoggerService
+        private logger:LoggerService,
+        private commonService:CommonService
     ) {
         
      }
@@ -56,6 +62,7 @@ export class ImageTutorComponent implements OnInit, OnDestroy,ITutorial {
         this.pagenumber = x;
         this.refurl = this.constantsService.selectedPageUrl;
         this.logger.log("Page number now :"+x); 
+        this.commonService.showLoader(this.page);
     }
 
     ngOnDestroy(): void {
@@ -78,5 +85,10 @@ export class ImageTutorComponent implements OnInit, OnDestroy,ITutorial {
         }else{
             this.feedback = "InCorrect";
         }*/
+    }
+
+    onLoad():void{
+        this.logger.log("Load done.");
+        this.commonService.hideLoader();
     }
 }

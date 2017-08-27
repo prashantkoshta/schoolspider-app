@@ -11,7 +11,6 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 
-import { ItemService } from "./item/item.service";
 import { ItemsComponent } from "./item/items.component";
 
 //
@@ -26,7 +25,7 @@ import { ConstantsService } from "./shared/constants.service";
 import { AssestsService } from "./shared/assets.service";
 import { LoggerService } from "./shared/logger.service";
 import { CommonService } from "./shared/common.service";
-
+import { RouteResolveService } from "./shared/routeresolve.service";
 
 
 
@@ -64,12 +63,12 @@ import { TutorialModule } from "./com/tutorial/tutorial.module";
         LandingComponent
     ],
     providers: [
-        ItemService,
         CoreService,
         ConstantsService,
         AssestsService,
         LoggerService,
-        CommonService
+        CommonService,
+        RouteResolveService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

@@ -8,12 +8,14 @@ import 'rxjs/add/operator/map';
 import {ConstantsService} from "./constants.service";
 import { LoggerService } from "./logger.service";
 
+
 @Injectable()
 export class CoreService {
     constructor(private _http:Http, 
         private _constants:ConstantsService,
-        private logger:LoggerService
-    ) { }
+        private logger:LoggerService,
+    ) {
+     }
 
     public getAppDataConfig(){
         var data = {
@@ -25,6 +27,7 @@ export class CoreService {
         };
         return this.getServiceData(data,"/fetchData");
     }
+
 
     public getQuestions(doctype:string,clas:string,sub:string,lesson:string,topic:string):Observable<Array<object>> {
         var data = {
@@ -360,7 +363,7 @@ export class CoreService {
     }
 
     private getServiceData(param,api:string):Observable<Array<object>>{
-        this.logger.log("PARMAS   "+JSON.stringify(param));
+       // this.logger.log("PARMAS   "+JSON.stringify(param));
         let options:RequestOptions = new RequestOptions({
             method: "post",
             body:param,
@@ -371,7 +374,9 @@ export class CoreService {
         .map((response: Response) => <Array<object>> response.json())
         .do(data => {})
         .catch(this.handleError)
-        .do(data => this.logger.log("Results:###########"));
+        .do(data => {
+           // this.logger.log("Results:###########"+JSON.stringify(data))
+        });
     }
 
     private handleError(error:Response):Observable<any>{

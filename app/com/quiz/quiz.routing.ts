@@ -6,10 +6,11 @@ import { QuizComponent } from "./quiz.component";
 import { RadioOptionsComponent } from "./radiooptions/radiooptions.component";
 import { MultiSelectOptionsComponent } from "./multiselectoptions/multiselectoptions.component";
 import { FillInBlanksComponent } from "./fillinblanks/fillinblanks.component";
+import { QuizRouteResolveService } from "./quizrouteresolve.service";
 
 const quizRoutes: Routes = [
 
-    { path: "quizs",component: QuizComponent,
+    { path: "quizs",component: QuizComponent, resolve: { routeData: QuizRouteResolveService },
         children: [
             {path: "single-select/:qid",component: RadioOptionsComponent},
             {path: "multi-select/:qid",component: MultiSelectOptionsComponent},

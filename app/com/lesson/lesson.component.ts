@@ -5,6 +5,7 @@ import {RouterExtensions} from "nativescript-angular/router";
 import { CoreService } from "../../shared/core.service";
 import { LoggerService } from "../../shared/logger.service";
 import { ConstantsService } from "../../shared/constants.service";
+import { CommonService } from "../../shared/common.service";
 
 @Component({
     selector: "ns-lesson",
@@ -20,20 +21,16 @@ export class LessonComponent implements OnInit {
         private route: ActivatedRoute,
         private _coreService:CoreService,
         private logger:LoggerService,
-        private constantsService:ConstantsService,
+        public constantsService:ConstantsService,
         private routerExtensions: RouterExtensions, 
+        private commonService:CommonService
     ) { }
 
     ngOnInit(): void {
         this.title = "Lesson";
         this.clas = this.route.snapshot.params["clas"];
         this.subject = this.route.snapshot.params["sub"];
-        this._coreService.getLessons( this.constantsService.navState ,this.clas,this.subject).subscribe(data => {
-            this.items =  data;
-        },
-        error =>{
-            this.logger.log("this._coreService.getLessons Error");
-        });
+        this.items = this.route.snapshot.data['routeData'];
         
     }
 

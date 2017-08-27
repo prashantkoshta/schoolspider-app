@@ -23,12 +23,7 @@ export class SubjectComponent implements OnInit {
 
     ngOnInit(): void {
         this.title = "Subject";
-        this.clas = this.route.snapshot.params["clas"];  
-        this._coreService.getSubjects( this.constantsService.navState ,this.clas).subscribe(data => {
-            this.items =  data;
-        },
-        error =>{
-            this.logger.log(">>>>>>ERROR>>>>>>");
-        });
+        this.clas = this.route.snapshot.params["clas"]; 
+        this.items = this.route.snapshot.data['routeData']; 
     }
 }

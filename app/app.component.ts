@@ -18,11 +18,11 @@ export class AppComponent {
     private _constantsService:ConstantsService,
     private logger:LoggerService
 ){
-        this._coreService.getAppDataConfig().subscribe(
+       /* this._coreService.getAppDataConfig().subscribe(
             data => {this._constantsService.appConfigData = data;},
         error =>{
             this.logger.log("this._coreService.getAppDataConfig() ERROR");
-        });
+        });*/
     }
    
 }

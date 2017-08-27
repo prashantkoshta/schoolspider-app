@@ -23,20 +23,29 @@ export class QuizComponent implements OnInit {
         private _constantsService:ConstantsService,
         private logger:LoggerService
     ) { 
-        let len = this._constantsService.questions.length;
-        let cnt = this._constantsService.qIndex+1;
-        this.setQutestionTitle(cnt,len);
-        this.isLastData  = (len == cnt)?true:false;
+        
     }
 
 
     ngOnInit(){
+        var titem = this.route.snapshot.params['qdata'];
+        this._constantsService.questions = this.route.snapshot.data['routeData'];
+        this._constantsService.qIndex = 0
+        this._constantsService.routeParam = titem;
+        this._constantsService.selectedQuestion = this._constantsService.questions [0];
+        var q = this._constantsService.selectedQuestion;
+
+        let len = this._constantsService.questions.length;
+        let cnt = this._constantsService.qIndex+1;
+        this.setQutestionTitle(cnt,len);
+        this.isLastData  = (len == cnt)?true:false;
+        
+        this.routerExtensions.navigate(["/quizs/"+q["qtype"],this._constantsService.qIndex]);
     }
 
     onClickNext():void{
         this._constantsService.qIndex+=1;
         let len = this._constantsService.questions.length;
-        this.logger.log("Count:"+this._constantsService.questions.length);
         if(this._constantsService.qIndex == this._constantsService.questions.length-1){
             this.isLastData = true;
         }

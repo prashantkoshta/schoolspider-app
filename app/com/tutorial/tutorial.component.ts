@@ -61,7 +61,6 @@ export class TutorialComponent implements OnInit {
     }
     
     private onPageUdpate(){
-        this.logger.log("Now updateing page : "+this.currentpage);
         this.routerExtensions.navigate(["/tutorial/page","1","English","Lesson "+this.nofopage],
             {
                 animated:true,
@@ -73,7 +72,7 @@ export class TutorialComponent implements OnInit {
             }
         );
         var t = this.currentpage+1;
-        this.title = "Tutors : "+t+ " of "+this.nofopage;
+        this.title = "Page : "+t+ " of "+this.nofopage;
         this.constantsService.selectedPageUrl = this.constantsService.pages[this.currentpage];
         this.constantsService.subjectPageRxjs.next(this.currentpage);
     }

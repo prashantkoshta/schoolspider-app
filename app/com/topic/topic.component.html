@@ -3,8 +3,7 @@
 <StackLayout class="page">
     <ListView [items]="items" class="list-group">
         <ng-template let-item="item">
-                <Label (tap)="getQuestionList(item)" [text]="item.topic"
-                class="list-group-item"></Label>
+                <Label [nsRouterLink]="['/quizs',item]" [text]="item.topic" class="list-group-item"></Label>
         </ng-template>
     </ListView>
 </StackLayout>

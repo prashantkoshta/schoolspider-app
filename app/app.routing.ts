@@ -8,16 +8,19 @@ import { LessonComponent } from "./com/lesson/lesson.component";
 import { SubjectComponent } from "./com/subject/subject.component";
 import { TopicComponent } from "./com/topic/topic.component";
 import { LandingComponent } from "./com/landing/landing.component";
+import { RouteResolveService } from "./shared/routeresolve.service";
+
+
 
 const routes: Routes = [
     { path: "", redirectTo: "/landing", pathMatch: "full" },
     { path: "landing", component: LandingComponent },
     //{ path: "", redirectTo: "/items", pathMatch: "full" },
-    { path: "items", component: ItemsComponent },
-    { path: "standards/:navstart", component: StandardComponent},
-    { path: "subjects/:navstart/:clas", component: SubjectComponent },
-    { path: "lessons/:navstart/:clas/:sub", component: LessonComponent },
-    { path: "topics/:navstart/:clas/:sub/:lesson", component: TopicComponent }
+    { path: "items", component: ItemsComponent, resolve: { routeData: RouteResolveService }},
+    { path: "standards/:navstart", component: StandardComponent, resolve: { routeData: RouteResolveService }},
+    { path: "subjects/:navstart/:clas", component: SubjectComponent , resolve: { routeData: RouteResolveService }},
+    { path: "lessons/:navstart/:clas/:sub", component: LessonComponent, resolve: { routeData: RouteResolveService } },
+    { path: "topics/:navstart/:clas/:sub/:lesson", component: TopicComponent , resolve: { routeData: RouteResolveService }}
     
 ];
 

@@ -35,6 +35,9 @@ export class ConstantsService {
     //
     public ANIMATION_ROLLIN:any;
 
+
+    public progressValue:number = 0;
+
     constructor() {
         this.subjectQIndexRxjs = new Subject<number>();
         this.subjectPageRxjs = new Subject<number>();

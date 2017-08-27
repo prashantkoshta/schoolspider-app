@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
-import { Item } from "./item";
-import { ItemService } from "./item.service";
+import { ActivatedRoute } from "@angular/router";
+
 import { AssestsService } from "../shared/assets.service";
 import { LoggerService } from "../shared/logger.service";
 import { ConstantsService } from "../shared/constants.service";
+import { CommonService } from "../shared/common.service";
 
 @Component({
     selector: "ns-items",
@@ -12,18 +13,23 @@ import { ConstantsService } from "../shared/constants.service";
     templateUrl: "./items.component.html",
 })
 export class ItemsComponent implements OnInit {
-    items: Item[];
-
-    constructor(private itemService: ItemService, 
+    items: any[];
+    public SCREEN_ID:string = "itemScreen001";
+    constructor(
     private routerExtensions:RouterExtensions,
     public assets:AssestsService,
     private logger:LoggerService,
-    public constantsService:ConstantsService
+    public constantsService:ConstantsService,
+    private route: ActivatedRoute,
+    public commonService:CommonService
+
 ) { }
 
     ngOnInit(): void {
-        this.items = this.itemService.getItems();
-
+        //this.items = this.itemService.getItems();
+        this.constantsService.appConfigData = this.route.snapshot.data['routeData']
+        let configData = this.commonService.getScreenConfigData(this.SCREEN_ID);
+        this.items = configData.data;
         //
         //Uncomment for testing spcific question layout
         

@@ -3,6 +3,7 @@ import {RouterExtensions} from "nativescript-angular/router";
 import { AssestsService } from "../../shared/assets.service";
 import { LoggerService } from "../../shared/logger.service";
 import { ConstantsService } from "../../shared/constants.service";
+import { CommonService } from "../../shared/common.service";
 import {Page} from "ui/page";
 
 @Component({
@@ -17,15 +18,13 @@ export class LandingComponent implements OnInit {
     public assets:AssestsService,
     private logger:LoggerService,
     public constantsService:ConstantsService,
+    public commonService:CommonService,
     private page: Page) {
         page.actionBarHidden = true;
     }
 
     ngOnInit(): void {
         
-
-
-
         //Uncomment for testing spcific question layout
         
         //For Question
