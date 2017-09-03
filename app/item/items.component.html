@@ -1,9 +1,9 @@
 <ActionBar title="{{constantsService.appConfigData.appname}}" class="action-bar"></ActionBar>
 <StackLayout class="page">
         <!-- Image [src]="assets.DYN_ICONS" stretch ="none"></Image --> 
-        <ListView [items]="items" class="list-group">
+        <ListView [items]="items" class="list-group" (itemTap)="onSelect($event)">
             <ng-template let-item="item">
-                    <Label [nsRouterLink]="['/standards',item.role]" [text]="item.name" class="list-group-item"></Label>
+                    <Label [text]="item.name" class="list-group-item"></Label>
             </ng-template>
         </ListView>
 </StackLayout>

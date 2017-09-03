@@ -14,13 +14,39 @@ import { RouteResolveService } from "./shared/routeresolve.service";
 
 const routes: Routes = [
     { path: "", redirectTo: "/landing", pathMatch: "full" },
+
     { path: "landing", component: LandingComponent },
+
+    { path: "items", component: ItemsComponent, resolve: { routeData: RouteResolveService }},
+
+    { path: "exam",
+        children: [
+            { path: "standards", component: StandardComponent, resolve: { routeData: RouteResolveService }},
+            { path: "subjects", component: SubjectComponent , resolve: { routeData: RouteResolveService }},
+            { path: "lessons", component: LessonComponent, resolve: { routeData: RouteResolveService } },
+            { path: "topics", component: TopicComponent , resolve: { routeData: RouteResolveService }}
+        ]
+    },
+
+    { path: "tutorial",
+        children: [
+            { path: "standards", component: StandardComponent, resolve: { routeData: RouteResolveService }},
+            { path: "subjects", component: SubjectComponent , resolve: { routeData: RouteResolveService }},
+            { path: "lessons", component: LessonComponent, resolve: { routeData: RouteResolveService } },
+            { path: "topics", component: TopicComponent , resolve: { routeData: RouteResolveService }}
+        ]
+    }
+
+
+
     //{ path: "", redirectTo: "/items", pathMatch: "full" },
+    /*
     { path: "items", component: ItemsComponent, resolve: { routeData: RouteResolveService }},
     { path: "standards/:navstart", component: StandardComponent, resolve: { routeData: RouteResolveService }},
     { path: "subjects/:navstart/:clas", component: SubjectComponent , resolve: { routeData: RouteResolveService }},
     { path: "lessons/:navstart/:clas/:sub", component: LessonComponent, resolve: { routeData: RouteResolveService } },
     { path: "topics/:navstart/:clas/:sub/:lesson", component: TopicComponent , resolve: { routeData: RouteResolveService }}
+    */
     
 ];
 

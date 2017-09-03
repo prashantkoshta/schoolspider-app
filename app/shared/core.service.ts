@@ -354,7 +354,7 @@ export class CoreService {
         return this._http.get(this._constants.endpoint,options)
         .map((response: Response) => <Array<object>> response.json())
         .do(data => { 
-            //console.log("Results:###########"+JSON.stringify(data))
+            this.logger.log("Results:###########"+JSON.stringify(data));
         })
         .catch(this.handleError);
        /* .do(data => {

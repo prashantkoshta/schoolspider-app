@@ -8,7 +8,7 @@ import { TutorialRouteResolveService } from "./tutorialrouteresolve.service";
 
 const tutorialRoutes: Routes = [
 
-    { path: "tutorial",component: TutorialComponent, resolve: { routeData: TutorialRouteResolveService },
+    { path: "tutorialpage",component: TutorialComponent, resolve: { routeData: TutorialRouteResolveService },
         children: [
            // {path: ":clas/:sub/:lesson",},
             {path: "page",component: ImageTutorComponent}

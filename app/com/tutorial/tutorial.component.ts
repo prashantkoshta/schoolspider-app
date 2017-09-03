@@ -77,7 +77,7 @@ export class TutorialComponent implements OnInit {
         this.title = "Page : "+t+ " of "+this.nofopage;
         this.constantsService.selectedPageUrl = this.constantsService.pages[this.currentpage];
         this.constantsService.subjectPageRxjs.next(this.currentpage);
-        this.routerExtensions.navigate(["/tutorial/page"]);
+        this.routerExtensions.navigate(["/tutorialpage/page"]);
     }
 
     onClickNext():void{

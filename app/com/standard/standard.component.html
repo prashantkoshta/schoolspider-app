@@ -3,10 +3,9 @@
 <StackLayout class="page" width="100%" height="100%">
         <!-- Progress [value]="constantsService.progressValue" height="5" maxValue="100" class="m-20"></Progress>
         <Button (tap)="onclick()" width="30%" [text]="constantsService.progressValue" class="list-group-item"></Button -->
-    <ListView [items]="items" class="list-group" width="100%" height="100%">
+    <ListView [items]="items" (itemTap)="onSelect($event)" class="list-group" width="100%" height="100%">
         <ng-template let-item="item">
-                <Label [nsRouterLink]="['/subjects',constantsService.navState,item.class]" [text]="item.class_title"
-                class="list-group-item"></Label>
+                <Label [text]="item.class_title" class="list-group-item"></Label>
         </ng-template>
     </ListView>
 </StackLayout>

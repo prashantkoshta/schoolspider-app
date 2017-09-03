@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import {RouterExtensions} from "nativescript-angular/router";
-import { ActivatedRoute } from "@angular/router";
-
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import {RouterExtensions, } from "nativescript-angular/router";
+import { ActivatedRoute,NavigationExtras } from "@angular/router";
 import { AssestsService } from "../shared/assets.service";
 import { LoggerService } from "../shared/logger.service";
 import { ConstantsService } from "../shared/constants.service";
+import { CoreService } from "../shared/core.service";
 import { CommonService } from "../shared/common.service";
 
 @Component({
@@ -41,6 +41,13 @@ export class ItemsComponent implements OnInit {
         //For Tutorial
        // this.constantsService.navState = "tutorial";
         //this.routerExtensions.navigate(["/tutorial/page","1","English","Lesson 1"]);
+    }
+
+    onSelect(args):void{
+        var listItem:any = this.items[args.index];
+        this.logger.log("navigate to "+listItem.role);
+        this.constantsService.navState = listItem.role;
+        this.routerExtensions.navigate(['/'+listItem.role+'/standards']);
     }
    
 }

@@ -15,12 +15,13 @@ export class TutorialRouteResolveService implements Resolve<any> {
     ) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any>|Promise<any>|any {
-        var item = this.constantsService.selectedLessonItem;
+        //var item = this.constantsService.selectedLessonItem;
+        let data:any = JSON.parse(route.queryParams['message']);
         return this.coreService.getPages(
             this.constantsService.navState,
-            item.class,
-            item.subject,
-            item.lesson
+            data.class,
+            data.subject,
+            data.lesson
          );
     }
     

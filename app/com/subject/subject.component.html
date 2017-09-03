@@ -1,9 +1,8 @@
 <ActionBar [title]="title" class="action-bar"></ActionBar>
 <StackLayout class="page"  width="100%" height="100%">
-    <ListView [items]="items" class="list-group" width="100%" height="100%">
+    <ListView [items]="items" (itemTap)="onSelect($event)" class="list-group" width="100%" height="100%">
         <ng-template let-item="item">
-                <Label [nsRouterLink]="['/lessons',constantsService.navState,item.class,item.subject]" [text]="item.subject"
-                class="list-group-item"></Label>
+                <Label [text]="item.subject" class="list-group-item"></Label>
         </ng-template>
     </ListView>
 </StackLayout>

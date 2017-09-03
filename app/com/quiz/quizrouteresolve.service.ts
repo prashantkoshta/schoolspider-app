@@ -15,12 +15,9 @@ export class QuizRouteResolveService implements Resolve<any> {
     ) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any>|Promise<any>|any {
-        var path:string = route.url[0].path
-        return this.coreService.getQuestions( this.constantsService.navState ,
-            route.params['clas'],
-            route.params['sub'],
-            route.params['lesson'],
-            route.params['topic']);
+        let data:any = JSON.parse(route.queryParams['message']);
+        return this.coreService.getQuestions(this.constantsService.navState,
+            data.class,data.subject,data.lesson,data.topic);
     }
 
     
