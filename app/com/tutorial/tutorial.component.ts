@@ -18,6 +18,7 @@ export class TutorialComponent implements OnInit {
     title:string;
     nofopage:number;
     currentpage:number;
+    item:any
     constructor(
         private route: ActivatedRoute,
         private router:Router,
@@ -34,6 +35,16 @@ export class TutorialComponent implements OnInit {
 
 
     ngOnInit(){
+       
+         
+        this.item = this.route.snapshot.data['routeData'][0];
+        this.logger.log("Now updateing on get data page : "+this.currentpage);
+        this.logger.log("Now updateing on get data page : "+JSON.stringify(this.item));
+        this.constantsService.pages = this.item.refurls;
+        this.nofopage = this.constantsService.pages.length;
+        this.onNext();
+
+        /*
         this._coreService.getPages(
             this.constantsService.navState,
             this.route.snapshot.params["clas"],
@@ -51,6 +62,7 @@ export class TutorialComponent implements OnInit {
          error =>{
              this.logger.log("this._coreService.getClasses() ERROR");
          });
+         */
     }
 
     onNext():void{
@@ -61,30 +73,15 @@ export class TutorialComponent implements OnInit {
     }
     
     private onPageUdpate(){
-        this.routerExtensions.navigate(["/tutorial/page","1","English","Lesson "+this.nofopage],
-            {
-                animated:true,
-                transition: {
-                    name: "rollIn",
-                    duration: 600,
-                    curve: "linear"
-                }
-            }
-        );
         var t = this.currentpage+1;
         this.title = "Page : "+t+ " of "+this.nofopage;
         this.constantsService.selectedPageUrl = this.constantsService.pages[this.currentpage];
         this.constantsService.subjectPageRxjs.next(this.currentpage);
+        this.routerExtensions.navigate(["/tutorial/page"]);
     }
 
     onClickNext():void{
-        this.logger.log(this.route.snapshot.params["clas"]);
-        this.logger.log(this.route.snapshot.params["sub"]);
-        this.logger.log(this.route.snapshot.params["lesson"]);
-
        this.constantsService.navState
-
-       
     }
 
     onPrevious(){

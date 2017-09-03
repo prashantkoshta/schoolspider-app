@@ -30,7 +30,7 @@ export class ConstantsService {
     public selectedPageUrl:string;
     public subjectPageRxjs:Subject<number>;
 
-
+    public selectedLessonItem:any;
 
     //
     public ANIMATION_ROLLIN:any;

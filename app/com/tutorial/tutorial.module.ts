@@ -13,6 +13,8 @@ import { ConstantsService } from "../../shared/constants.service";
 import { TutorialRouting } from "./tutorial.routing";
 import { TutorialComponent } from "./tutorial.component";
 import { ImageTutorComponent } from "./imagetutor/imagetutor.component";
+import { TutorialRouteResolveService } from "./tutorialrouteresolve.service";
+
 
 @NgModule({
   imports: [
@@ -30,6 +32,10 @@ import { ImageTutorComponent } from "./imagetutor/imagetutor.component";
     TutorialComponent,
     ImageTutorComponent
   ],
-  providers:[CoreService,ConstantsService]
+  providers:[
+    CoreService,
+    ConstantsService,
+    TutorialRouteResolveService
+  ]
 })
 export class TutorialModule { }

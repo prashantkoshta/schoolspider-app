@@ -61,25 +61,6 @@ export class CoreService {
     }
 
     public getPages(doctype:string,clas:string,sub:string,lesson:string):Observable<Array<object>> {
-        /* var data = {
-             "query":{
-                 "class":clas,
-                 "subject":sub,
-                 "lesson":lesson
-             },
-             "sort":{
-                 "topic":1
-             },
-             "count":10,
-             "fields":{
-                 "_id":1,
-                 "class":1,
-                 "subject":1,
-                 "lesson":1,
-                 "topic":1
-             }
-             
-         }*/
          var data = {
              "query":
              [
@@ -363,7 +344,7 @@ export class CoreService {
     }
 
     private getServiceData(param,api:string):Observable<Array<object>>{
-       // this.logger.log("PARMAS   "+JSON.stringify(param));
+        this.logger.log("PARMAS   "+JSON.stringify(param));
         let options:RequestOptions = new RequestOptions({
             method: "post",
             body:param,
@@ -372,11 +353,13 @@ export class CoreService {
         });
         return this._http.get(this._constants.endpoint,options)
         .map((response: Response) => <Array<object>> response.json())
-        .do(data => {})
-        .catch(this.handleError)
-        .do(data => {
-           // this.logger.log("Results:###########"+JSON.stringify(data))
-        });
+        .do(data => { 
+            //console.log("Results:###########"+JSON.stringify(data))
+        })
+        .catch(this.handleError);
+       /* .do(data => {
+           this.logger.log("Results:###########"+JSON.stringify(data))
+        });*/
     }
 
     private handleError(error:Response):Observable<any>{

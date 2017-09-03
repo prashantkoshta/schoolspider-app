@@ -4,12 +4,14 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { TutorialComponent } from "./tutorial.component";
 
 import { ImageTutorComponent } from "./imagetutor/imagetutor.component";
+import { TutorialRouteResolveService } from "./tutorialrouteresolve.service";
 
 const tutorialRoutes: Routes = [
 
-    { path: "tutorial",component: TutorialComponent,
+    { path: "tutorial",component: TutorialComponent, resolve: { routeData: TutorialRouteResolveService },
         children: [
-            {path: "page/:clas/:sub/:lesson",component: ImageTutorComponent}
+           // {path: ":clas/:sub/:lesson",},
+            {path: "page",component: ImageTutorComponent}
         ]
     }
 ];

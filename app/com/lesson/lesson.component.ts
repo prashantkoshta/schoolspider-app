@@ -50,18 +50,9 @@ export class LessonComponent implements OnInit {
                 }*/
             );
         }else if(this.constantsService.navState == "tutorial"){
-            this.routerExtensions.navigate(['/tutorial/page',item.class,this.subject,item.lesson]
-            /*,
-                {
-                    animated:true,
-                    transition: {
-                        name: "slideInLeft",
-                        duration: 1000,
-                        curve: "linear"
-                    }
-                }
-                */
-            );
+           // this.routerExtensions.navigate(['/tutorial',item.class,item.subject,item.lesson]);
+            this.constantsService.selectedLessonItem = item;
+            this.routerExtensions.navigate(['/tutorial']);
         }
        
     }

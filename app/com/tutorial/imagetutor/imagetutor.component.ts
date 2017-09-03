@@ -42,8 +42,7 @@ export class ImageTutorComponent implements OnInit, OnDestroy,ITutorial {
 
    
     ngOnInit(): void {
-        this.pagenumber = this.route.snapshot.params["lesson"];
-
+        this.refurl = this.constantsService.selectedPageUrl;
         this.constantsService.subjectPageRxjs.subscribe(
             x => {
                 this.onPageChange(x);
@@ -62,7 +61,7 @@ export class ImageTutorComponent implements OnInit, OnDestroy,ITutorial {
         this.pagenumber = x;
         this.refurl = this.constantsService.selectedPageUrl;
         //this.logger.log("Page number now :"+x); 
-        this.commonService.showLoader();
+       // this.commonService.showLoader();
     }
 
     ngOnDestroy(): void {
@@ -79,6 +78,7 @@ export class ImageTutorComponent implements OnInit, OnDestroy,ITutorial {
       //  this.selectedOption = this.item.options[args.index];
     }
 
+
     onSubmit():void{
        /* if(this.selectedOptionIndex == this.item.ans[0]-1){
             this.feedback = "Correct";
@@ -89,6 +89,6 @@ export class ImageTutorComponent implements OnInit, OnDestroy,ITutorial {
 
     onLoad():void{
         this.logger.log("Load done.");
-        this.commonService.hideLoader();
+        //this.commonService.hideLoader();
     }
 }

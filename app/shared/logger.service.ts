@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
 export class LoggerService {
     constructor() { }
     log(msg:string){
-        console.log("\n#############   Logger   ##################:\n\n"+msg+"\n\n");
+        //console.log("\n#############   Logger   ##################:\n"+msg+"\n");
     }
 }
